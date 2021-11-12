@@ -5,8 +5,10 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Explore from './Pages/Explore/Explore';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import SignUp from './Pages/Login/SignUp/SignUp';
 import NotFound from './Pages/NotFound/NotFound';
+import Purchase from './Pages/Purchase/Purchase';
 
 function App() {
   return (
@@ -29,9 +31,12 @@ function App() {
             <Route path="/explore">
               <Explore></Explore>
             </Route>
-            <Route path="/dashboard">
+            <PrivateRoute path="/purchase">
+              <Purchase></Purchase>
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivateRoute>
             <Route exact to="*">
               <NotFound></NotFound>
             </Route>

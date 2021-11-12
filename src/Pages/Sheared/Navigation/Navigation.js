@@ -27,21 +27,21 @@ const Navigation = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link active nav-text" to='/explore'>Explore</NavLink>
                             </li>
-                            <li className="nav-item">
+                            {user.email && <li className="nav-item">
                                 <NavLink className="nav-link active nav-text" to='/dashboard'>Dashboard</NavLink>
-                            </li>
+                            </li>}
                         </ul>
                         <div className="d-flex">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
                                     <p className="nav-link active nav-text">{user?.displayName}</p>
                                 </li>
-                                <li className="nav-item">
-                                    <button onClick={goLogin} className="btn btn-outline-success">Login</button>
-                                </li>
-                                <li className="nav-item">
-                                    <button onClick={logOut} className="btn btn-outline-danger">Logout</button>
-                                </li>
+                                {!user.email && <li className="nav-item">
+                                    <button onClick={goLogin} className="btn btn-outline-success rounded-pill">Login</button>
+                                </li>}
+                                {user.email && <li className="nav-item">
+                                    <button onClick={logOut} className="btn btn-outline-danger rounded-pill">Logout</button>
+                                </li>}
                             </ul>
                         </div>
                     </div>

@@ -1,0 +1,21 @@
+.bg-container{
+    position: relative;
+}
+.explore{
+    position: absolute;
+    text-align: left;
+    width: 50%;
+    top: 30%;
+    right: 40%;
+}
+.explore h1{
+    color: #FFFFFF;
+    font-weight: bolder;
+}
+.explore span{
+    text-decoration: underline;
+}
+.explore p{
+    color: rgba(228, 217, 217, 0.904);
+    font-size: 20px;
+}

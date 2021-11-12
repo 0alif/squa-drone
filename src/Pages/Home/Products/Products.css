@@ -1,0 +1,11 @@
+.card-img{
+    width: 100%;
+}
+.purchase-btn{
+    background-color: #262626;
+    color: white;
+    font-weight: 500;
+}
+.purchase-btn:hover{
+    color: white;
+}
