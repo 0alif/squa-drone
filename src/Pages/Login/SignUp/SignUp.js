@@ -1,37 +1,28 @@
+import { Alert, Button, CircularProgress, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 import Footer from '../../Sheared/Footer/Footer';
 import Navigation from '../../Sheared/Navigation/Navigation';
-import logo from '../../../images/login.jpg';
-import { Alert, Button, TextField, CircularProgress } from '@mui/material';
-import { NavLink, useLocation, useHistory } from 'react-router-dom';
-import GoogleButton from 'react-google-button';
+import logo from '../../../images/register.jpg';
 import useAuth from '../../../hooks/useAuth';
 
-const Login = () => {
-    const [loginData, setLoginData] = useState({});
-    const { loginUser, error, isLoading, signInWithGoogle } = useAuth();
+const SignUp = () => {
+    const [signUpData, setSignUpData] = useState({});
+    const { error, isLoading, registerUser } = useAuth();
 
-    const location = useLocation();
     const history = useHistory();
 
-    // login with email & password
-    const handleLogin = event => {
-        loginUser(loginUser.email, loginUser.password, location, history);
-        event.preventDefault();
-    }
-
-    // getting data
     const handleOnBlur = event => {
         const field = event.target.name;
         const value = event.target.value;
-        const newData = { ...loginData };
+        const newData = { ...signUpData };
         newData[field] = value;
-        setLoginData(newData);
+        setSignUpData(newData);
     }
 
-    // login with google
-    const googleLogin = () => {
-        signInWithGoogle(location, history)
+    const handleSignUp = event => {
+        registerUser(signUpData.email, signUpData.password, signUpData.name, history)
+        event.preventDefault();
     }
 
     return (
@@ -43,15 +34,16 @@ const Login = () => {
                         <img className="img-fluid" src={logo} alt="" />
                     </div>
                     <div className="col-sm-12 col-md-6">
-                        {!isLoading && <form className="mt-5 pt-5" onSubmit={handleLogin}>
+                        {!isLoading && <form onSubmit={handleSignUp} className="mt-5 py-5">
+                            <TextField onBlur={handleOnBlur} required className="mb-3 w-50" type="text" name="name" label="Name" variant="standard" />
+                            <br />
                             <TextField onBlur={handleOnBlur} required className="mb-3 w-50" type="email" name="email" label="Email" variant="standard" />
                             <br />
                             <TextField onBlur={handleOnBlur} required className="mb-3 w-50" type="password" name="password" label="Password" variant="standard" />
                             <br />
-                            <Button className="mb-3" type="submit" variant="outlined">Login</Button>
+                            <Button className="mb-3" type="submit" variant="outlined">Sign Up</Button>
                             <br />
-                            <NavLink to="/signUp">Don't have any account? Sign Up!</NavLink>
-                            <GoogleButton onClick={googleLogin} className="my-4" />
+                            <NavLink to="/login">Already have a account? Login!</NavLink>
                         </form>}
                         {isLoading && <CircularProgress />}
                         {error && <Alert severity="error">{error}</Alert>}
@@ -63,4 +55,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

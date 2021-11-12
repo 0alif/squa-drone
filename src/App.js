@@ -5,6 +5,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Explore from './Pages/Explore/Explore';
 import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login/Login';
+import SignUp from './Pages/Login/SignUp/SignUp';
 import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login></Login>
+            </Route>
+            <Route path="/signUp">
+              <SignUp></SignUp>
             </Route>
             <Route path="/explore">
               <Explore></Explore>

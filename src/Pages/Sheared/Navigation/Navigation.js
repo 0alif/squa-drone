@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo-black.png';
 import './Navigation.css';
 
 const Navigation = () => {
 
     const history = useHistory();
+    const { user, logOut } = useAuth();
 
     // go to login page
     const goLogin = () => {
@@ -30,8 +32,17 @@ const Navigation = () => {
                             </li>
                         </ul>
                         <div className="d-flex">
-                            <button onClick={goLogin} className="btn btn-outline-success">Login</button>
-                            <button className="btn btn-outline-danger">Logout</button>
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className="nav-item">
+                                    <p className="nav-link active nav-text">{user?.displayName}</p>
+                                </li>
+                                <li className="nav-item">
+                                    <button onClick={goLogin} className="btn btn-outline-success">Login</button>
+                                </li>
+                                <li className="nav-item">
+                                    <button onClick={logOut} className="btn btn-outline-danger">Logout</button>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
