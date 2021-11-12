@@ -1,0 +1,32 @@
+.hero-container{
+    position: relative;
+}
+.hero{
+    position: absolute;
+    text-align: left;
+    width: 50%;
+    top: 30%;
+    right: 40%;
+}
+.hero h1{
+    color: #FFFFFF;
+    font-weight: bolder;
+}
+.hero span{
+    text-decoration: underline;
+}
+.hero p{
+    color: rgba(228, 217, 217, 0.904);
+    font-size: 20px;
+}
+.hero-btn{
+    color: black;
+    font-weight: 500;
+    margin-top: 10px;
+    padding: 5px 40px;
+    background-color: white;
+}
+.hero-btn:hover{
+    color: white;
+    background-color: #262626;
+}
