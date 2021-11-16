@@ -1,0 +1,13 @@
+.not_found img{
+    display: block;
+    margin: auto;
+    width: 60%;
+}
+.not_found button{
+    display: block;
+    margin: auto;
+    background-color: #42A5F5;
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+}
