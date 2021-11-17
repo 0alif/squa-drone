@@ -28,7 +28,7 @@ function Dashboard(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const { path, url } = useRouteMatch();
-    const { logOut } = useAuth();
+    const { logOut, admin } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -45,14 +45,15 @@ function Dashboard(props) {
             <Link className="dashboard-link" to={`${url}/review`}>Review</Link>
             <br />
             <Link className="dashboard-link" to={`${url}/myOrders`}>My Orders</Link>
-            <br />
-            <Link className="dashboard-link" to={`${url}/manageAllOrders`}>Manage All Orders</Link>
-            <br />
-            <Link className="dashboard-link" to={`${url}/addProduct`}>Add Product</Link>
-            <br />
-            <Link className="dashboard-link" to={`${url}/makeAdmin`}>Make Admin</Link>
-            <br />
-            <Link className="dashboard-link" to={`${url}/manageProducts`}>Manage Products</Link>
+            {admin && <Box>
+                <Link className="dashboard-link" to={`${url}/manageAllOrders`}>Manage All Orders</Link>
+                <br />
+                <Link className="dashboard-link" to={`${url}/addProduct`}>Add Product</Link>
+                <br />
+                <Link className="dashboard-link" to={`${url}/makeAdmin`}>Make Admin</Link>
+                <br />
+                <Link className="dashboard-link" to={`${url}/manageProducts`}>Manage Products</Link>
+            </Box>}
             <Divider />
             <Button onClick={logOut} color="error">Logout</Button>
         </div>
