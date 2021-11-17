@@ -21,7 +21,7 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManageProducts from '../ManageProducts/ManageProducts';
 import useAuth from '../../../hooks/useAuth';
 
-const drawerWidth = 200;
+const drawerWidth = 240;
 
 function Dashboard(props) {
     const { window } = props;

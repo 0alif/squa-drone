@@ -23,6 +23,7 @@ const useFirebase = () => {
                 setError('');
                 const newUser = { email, displayName: name };
                 setUser(newUser);
+                saveUser(email, name, 'POST');
                 updateProfile(auth.currentUser, {
                     displayName: name
                 })
@@ -55,6 +56,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 setError('');
+                saveUser(result.user.email, result.user.displayName, 'PUT');
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
             }).catch((error) => {
@@ -85,6 +87,18 @@ const useFirebase = () => {
             setError(error.message);
         })
             .finally(() => setIsLoading(false));
+    }
+
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            }
+            , body: JSON.stringify(user)
+        })
+            .then()
     }
 
     return { user, error, isLoading, loginUser, registerUser, signInWithGoogle, logOut }
