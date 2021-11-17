@@ -9,12 +9,26 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { Button } from '@mui/material';
+import './Dashboard.css';
+import Pay from '../Pay/Pay';
+import Review from '../Review/Review';
+import MyOrders from '../MyOrders/MyOrders';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import AddProduct from '../AddProduct/AddProduct';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import useAuth from '../../../hooks/useAuth';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    const { path, url } = useRouteMatch();
+    const { logOut } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -24,8 +38,23 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <button className="btn btn-outline-danger">Logout</button>
+            <Link className="dashboard-link" to="/">Website</Link>
+            <br />
+            <Link className="dashboard-link" to={`${url}/pay`}>Pay</Link>
+            <br />
+            <Link className="dashboard-link" to={`${url}/review`}>Review</Link>
+            <br />
+            <Link className="dashboard-link" to={`${url}/myOrders`}>My Orders</Link>
+            <br />
+            <Link className="dashboard-link" to={`${url}/manageAllOrders`}>Manage All Orders</Link>
+            <br />
+            <Link className="dashboard-link" to={`${url}/addProduct`}>Add Product</Link>
+            <br />
+            <Link className="dashboard-link" to={`${url}/makeAdmin`}>Make Admin</Link>
+            <br />
+            <Link className="dashboard-link" to={`${url}/manageProducts`}>Manage Products</Link>
             <Divider />
+            <Button onClick={logOut} color="error">Logout</Button>
         </div>
     );
 
@@ -62,7 +91,6 @@ function Dashboard(props) {
                     sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                     aria-label="mailbox folders"
                 >
-                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                     <Drawer
                         container={container}
                         variant="temporary"
@@ -94,7 +122,33 @@ function Dashboard(props) {
                     sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
                 >
                     <Toolbar />
-                    <Typography paragraph>Content</Typography>
+                    <Switch>
+                        <Route exact path={path}>
+                            <h2 className="App">Dashboard feature is coming soon.</h2>
+                            <p className="App">Developer is sleeping...</p>
+                        </Route>
+                        <Route path={`${path}/pay`}>
+                            <Pay></Pay>
+                        </Route>
+                        <Route path={`${path}/review`}>
+                            <Review></Review>
+                        </Route>
+                        <Route path={`${path}/myOrders`}>
+                            <MyOrders></MyOrders>
+                        </Route>
+                        <Route path={`${path}/manageAllOrders`}>
+                            <ManageAllOrders></ManageAllOrders>
+                        </Route>
+                        <Route path={`${path}/addProduct`}>
+                            <AddProduct></AddProduct>
+                        </Route>
+                        <Route path={`${path}/makeAdmin`}>
+                            <MakeAdmin></MakeAdmin>
+                        </Route>
+                        <Route path={`${path}/manageProducts`}>
+                            <ManageProducts></ManageProducts>
+                        </Route>
+                    </Switch>
                 </Box>
             </Box>
         </div>

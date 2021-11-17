@@ -1,0 +1,9 @@
+.dashboard-link{
+    text-decoration: none;
+    color: #262626;
+    font-size: 20px;
+    margin-left: 5px;
+}
+.dashboard-link:hover{
+    color: #262626;
+}
