@@ -9,7 +9,7 @@ const Product = () => {
 
     // load data
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://quiet-brushlands-60225.herokuapp.com/products')
             .then(res => res.json())
             .then(result => setData(result))
     }, [])

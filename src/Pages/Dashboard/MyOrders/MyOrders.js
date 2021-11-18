@@ -16,7 +16,7 @@ const MyOrders = () => {
 
     // load user orders
     useEffect(() => {
-        fetch(`http://localhost:5000/allOrders?email=${user.email}`)
+        fetch(`https://quiet-brushlands-60225.herokuapp.com/allOrders?email=${user.email}`)
             .then(res => res.json())
             .then(data => setOrders(data));
     }, [user.email])
@@ -25,7 +25,7 @@ const MyOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            fetch(`http://localhost:5000/allOrders/${id}`, {
+            fetch(`https://quiet-brushlands-60225.herokuapp.com/allOrders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

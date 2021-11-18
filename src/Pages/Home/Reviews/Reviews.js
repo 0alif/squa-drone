@@ -7,7 +7,7 @@ const Reviews = () => {
 
     // load reviews
     useEffect(() => {
-        fetch('http://localhost:5000/review')
+        fetch('https://quiet-brushlands-60225.herokuapp.com/review')
             .then(res => res.json())
             .then(result => setReview(result))
     }, [])

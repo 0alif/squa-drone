@@ -10,7 +10,7 @@ const Review = () => {
     const { user } = useAuth();
     const onSubmit = data => {
         const newData = { ...data, name: user.displayName }
-        fetch('http://localhost:5000/review', {
+        fetch('https://quiet-brushlands-60225.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

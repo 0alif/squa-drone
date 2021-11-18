@@ -20,7 +20,7 @@ const Purchase = () => {
 
     // load add products
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://quiet-brushlands-60225.herokuapp.com/products/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data));
     }, [id])
@@ -28,7 +28,7 @@ const Purchase = () => {
     // sent order to DB
     const handleOrder = e => {
         e.preventDefault();
-        fetch('http://localhost:5000/allOrders', {
+        fetch('https://quiet-brushlands-60225.herokuapp.com/allOrders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
