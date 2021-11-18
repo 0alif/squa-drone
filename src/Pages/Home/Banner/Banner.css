@@ -15,9 +15,10 @@
 .hero span{
     text-decoration: underline;
 }
-.hero p{
+.hero-text{
     color: rgba(228, 217, 217, 0.904);
     font-size: 20px;
+    text-align: left;
 }
 .hero-btn{
     color: black;

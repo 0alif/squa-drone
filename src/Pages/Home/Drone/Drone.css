@@ -3,9 +3,10 @@
     font-weight: 700;
     margin-top: 40px;
 }
-.drone p{
+.drone-text{
     color: #696969;
     font-size: 20px;
+    text-align: left;
 }
 .drone h5{
     color: #444444;

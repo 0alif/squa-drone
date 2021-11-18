@@ -18,7 +18,7 @@ const Banner = () => {
                 <div className="hero">
                     <h1>We Can Make Your <br />
                         Celebration <span>Marvelous</span></h1>
-                    <p>While they might seem like toys, a high-quality drone is a serious investment. We've flown plenty and there are a lot of good performers that we use.</p>
+                    <p className="hero-text">While they might seem like toys, a high-quality drone is a serious investment. We've flown plenty and there are a lot of good performers that we use.</p>
                     <button className="btn hero-btn rounded-pill">Get Started</button>
                 </div>
             </div>

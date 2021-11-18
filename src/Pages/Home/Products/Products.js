@@ -17,8 +17,8 @@ const Products = ({ product }) => {
                 <img src={image} className="img-fluid card-img" alt="" />
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
-                    <h6>${price}</h6>
-                    <p className="card-text">{description}</p>
+                    <h6 className="card-product">${price}</h6>
+                    <p className="card-product card-text">{description}</p>
                     <button onClick={() => handleClick(_id)} className="btn purchase-btn">Purchase</button>
                 </div>
             </div>
