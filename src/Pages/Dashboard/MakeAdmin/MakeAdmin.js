@@ -1,5 +1,6 @@
 import { Alert } from '@mui/material';
 import React, { useState } from 'react';
+import './MakeAdmin.css';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState('');
@@ -30,11 +31,11 @@ const MakeAdmin = () => {
 
     return (
         <div>
-            <h2 className="App">Make Admin</h2>
-            <form onSubmit={handleAdminSubmit}>
-                <label className="form-label">Email address</label>
-                <input onBlur={handleOnBlur} className="w-50 form-control" type="email" required />
-                <button className="mt-3 btn btn-primary" type="submit">Make Admin</button>
+            <form className="make-admin" onSubmit={handleAdminSubmit}>
+                <h2>Make Admin</h2>
+                <input onBlur={handleOnBlur} className="form-control" type="email" placeholder="Email" required />
+                <div className="form-text">You can make another user to admin</div>
+                <button className="btn admin-btn" type="submit">Make Admin</button>
             </form>
             {success && <Alert severity="success">Admin Made Successfully</Alert>}
         </div>

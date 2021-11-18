@@ -1,0 +1,22 @@
+.add-product h2{
+    text-align: center;
+    margin: 20px 0;
+    padding-bottom: 20px;
+}
+.product-input{
+    display: block;
+    margin: auto;
+    width: 50%;
+    padding: 5px 0;
+    margin-bottom: 10px;
+}
+.add-btn{
+    background-color: #262626;
+    color: white;
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+.add-btn:hover{
+    color: white;
+}
