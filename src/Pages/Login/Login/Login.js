@@ -16,7 +16,7 @@ const Login = () => {
 
     // login with email & password
     const handleLogin = event => {
-        loginUser(loginUser.email, loginUser.password, location, history);
+        loginUser(loginData.email, loginData.password, location, history);
         event.preventDefault();
     }
 
@@ -31,7 +31,7 @@ const Login = () => {
 
     // login with google
     const googleLogin = () => {
-        signInWithGoogle(location, history)
+        signInWithGoogle(location, history);
     }
 
     return (
